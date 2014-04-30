@@ -6,7 +6,7 @@ import java.lang.String;
 import java.lang.Double;
 
 // The class that will compute the pre-processing of a multi-server system.
-public class PreProcessor {
+public class ArrivalTimes {
 
    /*
     * Read in the inter arrival times from the file specified in the input.
