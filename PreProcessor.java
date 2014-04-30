@@ -4,7 +4,7 @@ import org.apache.commons.math3.distribution.ExponentialDistribution;
 public class PreProcessor {
 
     private static int numSubTasks;
-    private static int currentTime;
+    private static double currentTime;
 
     public PreProcessor(int n){
         numSubTasks = n;
@@ -23,10 +23,10 @@ public class PreProcessor {
         if(currentTime < arrivalTime) currentTime = arrivalTime;
         currentTime += processTime;
 
-        for(int i = 0; i < numSubTasks; i++){
+/*        for(int i = 0; i < numSubTasks; i++){
             SubRequest newSub = new SubRequest(currentTime);
             newRequest.add(newSub);
-        }
+        }*/
 
    }
 
