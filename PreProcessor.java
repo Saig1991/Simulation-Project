@@ -14,7 +14,7 @@ public class PreProcessor {
 
    // Time it takes the pre-processor to process a request into n sub-requests.
    // n has to be less than the number of servers m.
-   public void  processRequest (Request newRequest, double arrivalTime) {
+   public double  processRequest (Request newRequest, double arrivalTime) {
 
         double ExpDistRate = 10/numSubTasks;
         ExponentialDistribution ed = new ExponentialDistribution(ExpDistRate);
@@ -22,6 +22,7 @@ public class PreProcessor {
 
         if(currentTime < arrivalTime) currentTime = arrivalTime;
         currentTime += processTime;
+        return currentTime;
 
 /*        for(int i = 0; i < numSubTasks; i++){
             SubRequest newSub = new SubRequest(currentTime);
