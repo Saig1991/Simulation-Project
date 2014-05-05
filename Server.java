@@ -21,6 +21,10 @@ public class Server {
 
 
     }
+    
+    public double getCurrTime(){
+        return prevSubReqTime;
+    }
 
     // Generate a random number using the pareto distribution.
     // ts = tm/(n^1.7 * logk(1-u)) by using the inverse method on a pareto distribution with CDF.
