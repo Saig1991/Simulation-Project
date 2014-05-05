@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Request {
 
       private double arrivalTime; 
-      private double systemTime; 
+      public double systemTime; 
       private double responseTime; 
       private boolean finished;
       private ArrayList<SubRequest> subRequests;
@@ -16,7 +16,21 @@ public class Request {
             subRequests = new ArrayList<SubRequest>();
       }
 
-      public void createSubRequests(int n, int preProcessingTime){
+      public void setFinalProcessTime(double processTime){
+        systemTime = processTime;
+        responseTime = processTime - arrivalTime;
+        finished = true;
+      }
+
+      public int getNumSubRequests(){
+        return subRequests.size();
+      }     
+
+      public SubRequest getSubRequest(int i){
+            return subRequests.get(i);
+      }
+
+      public void createSubRequests(int n, double preProcessingTime){
 
           for(int i = 0; i < n; i++){
               SubRequest obj = new SubRequest(arrivalTime, preProcessingTime);  
