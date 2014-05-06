@@ -17,7 +17,8 @@ public class PreProcessor {
    public double  processRequest (Request newRequest, double arrivalTime) {
 
         double ExpDistRate = 10/numSubTasks;
-        ExponentialDistribution ed = new ExponentialDistribution(ExpDistRate);
+        double ExpDistMean = 1/ExpDistRate;
+        ExponentialDistribution ed = new ExponentialDistribution(ExpDistMean);
         double processTime = ed.sample();
 
         if(currentTime < arrivalTime) currentTime = arrivalTime;
