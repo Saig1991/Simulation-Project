@@ -5,8 +5,13 @@ import org.apache.commons.math3.random.JDKRandomGenerator;
 
 public class Server {
     private static final double shape = 2.08;
-    private static double prevSubReqTime;
-    private static final int seed = 3;
+    private double prevSubReqTime;
+    private static int seed = 3;
+
+    public Server(int seed){
+        prevSubReqTime = 0;
+        this.seed = seed;
+    }
 
     public void processSubRequest(int n, SubRequest newReq){
         double ts = ParetoCalc(n);
@@ -36,7 +41,11 @@ public class Server {
 
         // Setting a predefined see for simulation purposes.
         JDKRandomGenerator rng = new JDKRandomGenerator();
+        //int temp = (int)System.nanoTime();
+        // Change this line later
         rng.setSeed(seed);
+        //rng.setSeed(time(seed));
+
         UniformRealDistribution urd = new UniformRealDistribution(rng,0,1);
         double urdRand = 0;
 
@@ -45,8 +54,9 @@ public class Server {
             urdRand = urd.sample();
         }
 
-        ts = scale/logOfBase(urdRand,shape);
+        ts = -scale/logOfBase(urdRand,shape);
 
+        //System.out.println("ts :" + ts);
         return ts;
     }
 
