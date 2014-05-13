@@ -4,7 +4,7 @@ public class Request {
 
       private double arrivalTime; 
       public double systemTime; 
-      private double responseTime; 
+      public double responseTime; 
       private boolean finished;
       private ArrayList<SubRequest> subRequests;
 
@@ -19,6 +19,7 @@ public class Request {
       public void setFinalProcessTime(double processTime){
         systemTime = processTime;
         responseTime = processTime - arrivalTime;
+//        System.out.println(systemTime + "   "  + responseTime);
         finished = true;
       }
 
