@@ -1,14 +1,17 @@
 import org.apache.commons.math3.distribution.ExponentialDistribution;
+import org.apache.commons.math3.random.JDKRandomGenerator;
 
 // The class that will compute the pre-processing of a multi-server system.
 public class PreProcessor {
 
     private static int numSubTasks;
     private static double currentTime;
+    private static int seed;
 
-    public PreProcessor(int n){
+    public PreProcessor(int n, int seed){
         numSubTasks = n;
         currentTime = 0;
+        this.seed = seed;
     }
 
 
@@ -18,7 +21,11 @@ public class PreProcessor {
 
         double ExpDistRate = 10/numSubTasks;
         double ExpDistMean = 1/ExpDistRate;
-        ExponentialDistribution ed = new ExponentialDistribution(ExpDistMean);
+
+        JDKRandomGenerator rng = new JDKRandomGenerator();
+        rng.setSeed(seed);
+
+        ExponentialDistribution ed = new ExponentialDistribution(rng,ExpDistMean, ExponentialDistribution.DEFAULT_INVERSE_ABSOLUTE_ACCURACY);
         double processTime = ed.sample();
 
         if(currentTime < arrivalTime) currentTime = arrivalTime;
