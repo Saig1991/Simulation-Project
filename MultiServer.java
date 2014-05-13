@@ -6,11 +6,11 @@ public class MultiServer {
     private ArrayList<Server> multiServers;
     private int n;
 
-    public MultiServer(int m, int n){
+    public MultiServer(int m, int n, int seed){
         this.n = n;
         multiServers = new ArrayList<Server>();
         for(int i = 0; i < m; i++){
-            Server newServer = new Server();
+            Server newServer = new Server(seed);
             multiServers.add(newServer);
         }
     }
