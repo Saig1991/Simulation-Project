@@ -5,7 +5,7 @@ import java.util.Random;
 import org.apache.commons.math3.distribution.GammaDistribution;
 import org.apache.commons.math3.distribution.TriangularDistribution;
 import org.apache.commons.math3.random.RandomGenerator;
-import org.apache.commons.math3.random.JDKRandomGenerator;
+//import org.apache.commons.math3.random.JDKRandomGenerator;
  
  
 public class GenerateRandNo {
@@ -17,17 +17,17 @@ public class GenerateRandNo {
         private double b = 1.5;
         private double c = 0.8;
 
-        private static final int seed = 3;
+//        private static final int seed = 3;
        
        
         //private double Fc = 0.5;
        
        
         public double gammaDist () {
-                JDKRandomGenerator rng = new JDKRandomGenerator();
-                rng.setSeed(seed);
+ //               JDKRandomGenerator rng = new JDKRandomGenerator();
+   //             rng.setSeed(seed);
 
-                GammaDistribution gD = new GammaDistribution (rng,g_scale, shape,GammaDistribution.DEFAULT_INVERSE_ABSOLUTE_ACCURACY);
+                GammaDistribution gD = new GammaDistribution (g_scale, shape);
                 return gD.sample();
         }
        
@@ -37,7 +37,7 @@ public class GenerateRandNo {
 
                 TriangularDistribution tD = new TriangularDistribution (a, c, b);
                 Random rnd = new Random();
-                rnd.setSeed(seed);
+                //rnd.setSeed(seed);
                 U = rnd.nextDouble();
                 //System.out.println("U = " + U);
                 double Fc = (c-a)/(b-a);
