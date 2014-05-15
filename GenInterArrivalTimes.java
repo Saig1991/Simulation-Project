@@ -16,13 +16,13 @@ public class GenInterArrivalTimes {
                
 			   
 				int numArrivals = Integer.parseInt(args[0]);
-				int arrivalName = Integer.parseInt(args[1]);
+				String arrivalName = args[1];
                 genInterArrivalSeq(numArrivals, arrivalName);
                 //System.out.println("Gamma value = " + gRN.gammaDist());
                 //System.out.println("Triangular Dis value = " + gRN.triangularDist());
         }
        
-        public static void genInterArrivalSeq (int numArrivals, int arrivalName) throws InstantiationException, IllegalAccessException, IOException {
+        public static void genInterArrivalSeq (int numArrivals, String arrivalName) throws InstantiationException, IllegalAccessException, IOException {
                
 				String fileName = "arrivalTimes_" + arrivalName + ".txt";
                 File file = new File (fileName);
