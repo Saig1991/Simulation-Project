@@ -17,7 +17,7 @@ public class PreProcessor {
 
    // Time it takes the pre-processor to process a request into n sub-requests.
    // n has to be less than the number of servers m.
-   public double  processRequest (Request newRequest, double arrivalTime) {
+   public double  processRequest (double arrivalTime) {
 
         double ExpDistRate = 10/numSubTasks;
         double ExpDistMean = 1/ExpDistRate;
